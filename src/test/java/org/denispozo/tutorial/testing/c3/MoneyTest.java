@@ -48,4 +48,29 @@ public class MoneyTest {
         assertTrue(moneyA.equals(moneyB));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void negativeAmountShouldThrowIllegalArgumentException() {
+        int amount = -4;
+        String currency = "USD";
+
+        Money money = new Money(amount, currency);
+        System.out.println("No Exception Thrown - Money: " + money);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void nullCurrencyShouldThrowIllegalArgumentException() {
+        int amount = 4;
+
+        Money money = new Money(amount, null);
+        System.out.println("No Exception Thrown - Money: " + money);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void emptyCurrencyShouldThrowIllegalArgumentException() {
+        int amount = 4;
+        String empty = "";
+
+        Money money = new Money(amount, empty);
+        System.out.println("No Exception Thrown - Money: " + money);
+    }
 }

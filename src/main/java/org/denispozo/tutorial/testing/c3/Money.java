@@ -5,6 +5,13 @@ public class Money {
     private final String currency;
 
     public Money(int amount, String currency) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount cannot be negative");
+        }
+
+        if (currency == null || currency.equals("")) {
+            throw new IllegalArgumentException("Currency cannot be null");
+        }
         this.amount = amount;
         this.currency = currency;
     }
