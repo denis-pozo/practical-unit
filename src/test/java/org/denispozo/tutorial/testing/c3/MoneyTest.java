@@ -1,5 +1,6 @@
 package org.denispozo.tutorial.testing.c3;
 
+import static junitparams.JUnitParamsRunner.$;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -12,10 +13,10 @@ import org.junit.runner.RunWith;
 public class MoneyTest {
 
     private static final Object[] getMoney() {
-        return new Object[] {
-            new Object[] {10, "USD"},
-            new Object[] {20, "EUR"}
-        };
+        return $(
+            $(10, "USD"),
+            $(20, "EUR")
+        );
     }
 
     @Test
