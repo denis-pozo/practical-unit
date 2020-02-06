@@ -12,6 +12,9 @@ import org.junit.runner.RunWith;
 @RunWith(JUnitParamsRunner.class)
 public class MoneyTest {
 
+    public static final int VALID_AMOUNT = 10;
+    public static final String VALID_CURRENCY = "USD";
+
     private static final Object[] getMoney() {
         return $(
             $(10, "USD"),
@@ -19,9 +22,23 @@ public class MoneyTest {
         );
     }
 
+    private static final Object[] getInvalidAmount() {
+        return $(
+            $(-1),
+            $(-100)
+        );
+    }
+
+    private static final Object[] getInvalidCurrency() {
+        return $(
+            $(null),
+            $("")
+        );
+    }
+
     @Test
     public void constructorShouldSetAmountAndCurrency() {
-        Money money = new Money(10, "USD");
+        Money money = new Money(VALID_AMOUNT, VALID_CURRENCY);
 
         assertEquals(10, money.getAmount());
         assertEquals("USD", money.getCurrency());
@@ -39,38 +56,25 @@ public class MoneyTest {
 
     @Test
     public void equalsShouldReturnTrueWithEqualObjects() {
-        int amount = 10;
-        String currency = "USD";
-
-        Money moneyA = new Money(amount, currency);
-        Money moneyB = new Money(amount, currency);
+        Money moneyA = new Money(VALID_AMOUNT, VALID_CURRENCY);
+        Money moneyB = new Money(VALID_AMOUNT, VALID_CURRENCY);
 
         assertTrue(moneyA.equals(moneyB));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void negativeAmountShouldThrowIllegalArgumentException() {
-        int amount = -4;
-        String currency = "USD";
+    @Parameters(method = "getInvalidAmount")
+    public void constructorShouldThrowIAEForNegativeAmount(int amount) {
 
-        Money money = new Money(amount, currency);
+        Money money = new Money(amount, VALID_CURRENCY);
         System.out.println("No Exception Thrown - Money: " + money);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullCurrencyShouldThrowIllegalArgumentException() {
-        int amount = 4;
+    @Parameters(method = "getInvalidCurrency")
+    public void constructorShouldThrowIAEForInvalidCurrency(String currency) {
 
-        Money money = new Money(amount, null);
-        System.out.println("No Exception Thrown - Money: " + money);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void emptyCurrencyShouldThrowIllegalArgumentException() {
-        int amount = 4;
-        String empty = "";
-
-        Money money = new Money(amount, empty);
+        Money money = new Money(VALID_AMOUNT, currency);
         System.out.println("No Exception Thrown - Money: " + money);
     }
 }
