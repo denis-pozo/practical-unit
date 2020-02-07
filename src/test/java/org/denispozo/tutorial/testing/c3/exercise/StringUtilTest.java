@@ -1,6 +1,6 @@
 package org.denispozo.tutorial.testing.c3.exercise;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static junitparams.JUnitParamsRunner.$;
 
 import junitparams.JUnitParamsRunner;
@@ -28,11 +28,5 @@ public class StringUtilTest {
         String reverseString = StringUtil.reverse(actual);
 
         assertEquals(expectedReversed, reverseString);
-    }
-
-    // I don't really think this is necessary
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowIAEWithInvalidInput() {
-        StringUtil.reverse(null);
     }
 }
