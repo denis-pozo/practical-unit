@@ -55,7 +55,7 @@ public class MyHashMapTest {
     @Test
     public void nullShouldBeAPossibleKey() {
         Integer expected = 0;
-        
+
         map.put(null, 0);
         Integer symbol = map.get(null);
 

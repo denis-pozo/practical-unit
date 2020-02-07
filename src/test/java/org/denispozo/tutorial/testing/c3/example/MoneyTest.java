@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import org.denispozo.tutorial.testing.c3.example.Money;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
