@@ -1,4 +1,4 @@
-package org.denispozo.tutorial.testing.c3;
+package org.denispozo.tutorial.testing.c3.example;
 
 public class Money {
     private final int amount;

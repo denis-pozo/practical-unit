@@ -1,4 +1,4 @@
-package org.denispozo.tutorial.testing.c3;
+package org.denispozo.tutorial.testing.c3.example;
 
 import java.util.ArrayList;
 import java.util.Collection;

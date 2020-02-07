@@ -1,8 +1,10 @@
-package org.denispozo.tutorial.testing.c3;
+package org.denispozo.tutorial.testing.c3.example;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
+import org.denispozo.tutorial.testing.c3.example.Address;
+import org.denispozo.tutorial.testing.c3.example.Client;
 import org.junit.Before;
 import org.junit.Test;
 
