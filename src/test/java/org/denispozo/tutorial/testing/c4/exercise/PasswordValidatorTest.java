@@ -24,20 +24,23 @@ public class PasswordValidatorTest {
     @Test
     @Parameters(method = "getValidPassword")
     public void should_beValid_if_passwordCompliantWithRules(String password) {
-        assertTrue(PasswordValidator.isValid(password));
+        assertTrue(password + " does not meet the requirements (Shorter than 21, longer than 8, "
+                   + "one digit, one special character, one lower case, one upper case.",
+                   PasswordValidator.isValid(password));
     }
 
     @Test
     public void should_notBeValid_if_tooLongPassword() {
         String tooLong = "66za$MQMMWU&aNV*9FnJT";
-        assertFalse(PasswordValidator.isValid(tooLong));
-
+        assertFalse(tooLong + " is too long! Result must be invalid.",
+                    PasswordValidator.isValid(tooLong));
     }
 
     @Test
     public void should_notBeValid_if_tooShortPassword() {
         String tooShort = "66za$MQ";
-        assertFalse(PasswordValidator.isValid(tooShort));
+        assertFalse(tooShort + " is too short! Result must be invalid.",
+                    PasswordValidator.isValid(tooShort));
     }
 
     @Test
@@ -45,7 +48,8 @@ public class PasswordValidatorTest {
     public void should_notBeValid_if_passwordWithNoUpperCase(
         String password) {
         String invalid = password.toLowerCase();
-        assertFalse(PasswordValidator.isValid(invalid));
+        assertFalse(invalid + " is has no UPPER CASE! Result must be invalid.",
+                    PasswordValidator.isValid(invalid));
     }
 
     @Test
@@ -53,18 +57,21 @@ public class PasswordValidatorTest {
     public void should_notBeValid_if_passwordWithNoLowerCase(
         String password) {
         String invalid = password.toUpperCase();
-        assertFalse(PasswordValidator.isValid(invalid));
+        assertFalse(invalid + " is has no lower case! Result must be invalid.",
+                    PasswordValidator.isValid(invalid));
     }
 
     @Test
     public void should_notBeValid_if_passwordWithNoNumber() {
         String invalid = "NNnn>!NNNN";
-        assertFalse(PasswordValidator.isValid(invalid));
+        assertFalse(invalid + " is has no number! Result must be invalid.",
+                    PasswordValidator.isValid(invalid));
     }
 
     @Test
     public void should_notBeValid_if_passwordWithNoSpecialChar() {
         String invalid = "NNnn32NNNN";
-        assertFalse(PasswordValidator.isValid(invalid));
+        assertFalse(invalid + " is has no special character! Result must be invalid.",
+                    PasswordValidator.isValid(invalid));
     }
 }
