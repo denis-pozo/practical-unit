@@ -1,4 +1,4 @@
-package org.denispozo.tutorial.testing.c5.example;
+package org.denispozo.tutorial.testing.c5.exercise;
 
 public interface RacesClient {
 
