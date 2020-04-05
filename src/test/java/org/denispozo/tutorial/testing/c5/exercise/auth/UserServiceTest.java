@@ -1,7 +1,11 @@
-package org.denispozo.tutorial.testing.c5.exercise;
+package org.denispozo.tutorial.testing.c5.exercise.auth;
 
 import static org.mockito.Mockito.*;
 
+import org.denispozo.tutorial.testing.c5.exercise.auth.SecurityService;
+import org.denispozo.tutorial.testing.c5.exercise.auth.User;
+import org.denispozo.tutorial.testing.c5.exercise.auth.UserDAO;
+import org.denispozo.tutorial.testing.c5.exercise.auth.UserService;
 import org.junit.Test;
 
 public class UserServiceTest {

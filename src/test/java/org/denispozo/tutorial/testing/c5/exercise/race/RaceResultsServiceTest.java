@@ -1,7 +1,11 @@
-package org.denispozo.tutorial.testing.c5.exercise;
+package org.denispozo.tutorial.testing.c5.exercise.race;
 
 import static org.mockito.Mockito.*;
 
+import org.denispozo.tutorial.testing.c5.exercise.race.RaceCategory;
+import org.denispozo.tutorial.testing.c5.exercise.race.RaceResults;
+import org.denispozo.tutorial.testing.c5.exercise.race.RaceResultsService;
+import org.denispozo.tutorial.testing.c5.exercise.race.RacesClient;
 import org.junit.Before;
 import org.junit.Test;
 

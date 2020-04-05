@@ -1,4 +1,4 @@
-package org.denispozo.tutorial.testing.c5.exercise;
+package org.denispozo.tutorial.testing.c5.exercise.race;
 
 import lombok.extern.slf4j.Slf4j;
 
