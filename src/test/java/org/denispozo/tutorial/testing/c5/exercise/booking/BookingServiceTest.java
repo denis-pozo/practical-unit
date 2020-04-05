@@ -110,4 +110,47 @@ public class BookingServiceTest {
         assertFalse("Room with projector was booked",
                      bookingService.book(Equipment.PROJECTOR, bookingTime));
     }
+
+    @Test
+    public void availableRoomWithMicrophone_shouldBeBookable() {
+        when(aurora.getEquipment()).thenReturn(Equipment.PROJECTOR);
+        when(jasmine.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(arielle.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(pocahontas.getEquipment()).thenReturn(Equipment.WHITEBOARD);
+        assertTrue("Room with microphone wasn't booked",
+            bookingService.book(Equipment.MICROPHONE, bookingTime));
+    }
+
+    @Test
+    public void unavailableRoomWithMicrophone_shouldNotBeBookable() {
+        when(aurora.getEquipment()).thenReturn(Equipment.PROJECTOR);
+        when(jasmine.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(arielle.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(pocahontas.getEquipment()).thenReturn(Equipment.WHITEBOARD);
+        bookingService.book(Equipment.MICROPHONE, bookingTime);
+        bookingService.book(Equipment.MICROPHONE, bookingTime);
+        assertFalse("Room with MICROPHONE was booked",
+            bookingService.book(Equipment.MICROPHONE, bookingTime));
+    }
+
+    @Test
+    public void availableRoomWithWhiteboard_shouldBeBookable() {
+        when(aurora.getEquipment()).thenReturn(Equipment.PROJECTOR);
+        when(jasmine.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(arielle.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(pocahontas.getEquipment()).thenReturn(Equipment.WHITEBOARD);
+        assertTrue("Room with whiteboard wasn't booked",
+            bookingService.book(Equipment.WHITEBOARD, bookingTime));
+    }
+
+    @Test
+    public void unavailableRoomWithWhiteboard_shouldNotBeBookable() {
+        when(aurora.getEquipment()).thenReturn(Equipment.PROJECTOR);
+        when(jasmine.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(arielle.getEquipment()).thenReturn(Equipment.MICROPHONE);
+        when(pocahontas.getEquipment()).thenReturn(Equipment.WHITEBOARD);
+        bookingService.book(Equipment.WHITEBOARD, bookingTime);
+        assertFalse("Room with whiteboard was booked",
+            bookingService.book(Equipment.WHITEBOARD, bookingTime));
+    }
 }
